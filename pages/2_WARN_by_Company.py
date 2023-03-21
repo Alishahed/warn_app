@@ -37,7 +37,7 @@ df_23 = df
 list_company = sorted(df_23["Company"].unique())
 
 with st.sidebar:
-    st.title("Warn Act since July 22 (by Company)")
+    st.title("Warn Act since July 2022 (by Company)")
     option = st.selectbox(
     'Select a company name',
     list_company)
