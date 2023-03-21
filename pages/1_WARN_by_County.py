@@ -32,9 +32,9 @@ df = get_data(sql_query = query)
 df['Effective_Date'] = pd.to_datetime(df['Effective_Date'],format='%Y-%m-%d')
 df['Notice_Date'] = pd.to_datetime(df['Notice_Date'],format='%Y-%m-%d')
 df = df.drop(['Address','Layoff_Closure','record'],axis=1)
-df_23 = df[df['Notice_Date'] >'2022-12-31']
+#df_23 = df[df['Notice_Date'] >'2022-12-31']
 
-#df_23 = df
+df_23 = df
 df_county = df_23[['County_Parish','No_Of_Employees']]
 df_county['No_Of_Employees'] = df_county['No_Of_Employees'].astype('int')
 
@@ -42,10 +42,10 @@ list_county = sorted(df_23["County_Parish"].unique())
 df_county_group = df_county.groupby(['County_Parish']).sum().reset_index().sort_values('No_Of_Employees',ascending=False)
 
 with st.sidebar:
-    st.title("Warn Act 2023-by County")
+    st.title("Warn Act since July 22 (by County)")
 
 
-fig = px.bar(df_county_group, x='County_Parish', y='No_Of_Employees',title=f"No employees laidoff since 1/1/23 (Total:{df_county_group['No_Of_Employees'].sum()})")
+fig = px.bar(df_county_group, x='County_Parish', y='No_Of_Employees',title=f"Number of employees affected since 7/1/22 (Total:{df_county_group['No_Of_Employees'].sum()})")
 st.plotly_chart(fig)
 
-st.write(df_county_group)
+st.dataframe(df_county_group)

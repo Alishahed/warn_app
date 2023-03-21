@@ -1,6 +1,7 @@
 import streamlit as st
 from google.oauth2 import service_account
 from google.cloud import bigquery
+import plotly.express as px
 import pandas as pd
 
 # Create API client.
@@ -34,12 +35,9 @@ df = df.drop(['Address','Layoff_Closure','record'],axis=1)
 #df_23 = df[df['Notice_Date'] >'2022-12-31']
 df_23 = df
 
-list_company = sorted(df_23["Company"].unique())
+df_monthly = df_23.groupby(pd.Grouper(key='Notice_Date', axis=0, 
+                      freq='M')).sum().reset_index()
 
-with st.sidebar:
-    st.title("Warn Act since July 22 (by Company)")
-    option = st.selectbox(
-    'Select a company name',
-    list_company)
-
-st.dataframe(df_23[df_23["Company"]==option])
+fig = px.bar(df_monthly, x='Notice_Date', y='No_Of_Employees',title=f"Number of employees affected since 7/1/22 (Total:{df_monthly['No_Of_Employees'].sum()})")
+st.plotly_chart(fig)
+st.dataframe(df_monthly)
