@@ -1,3 +1,5 @@
 secrets.toml
 plumber_test.py
 *.pdf
+*.xlsx
+*.csv

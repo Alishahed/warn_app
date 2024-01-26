@@ -27,7 +27,7 @@ def get_data(sql_query):
 
     return dataframe
 
-query = "SELECT * FROM `streamlit-app-379004.warn_act.warn_2022`"
+query = "SELECT * FROM `streamlit-app-379004.warn_act.warn_total`"
 df = get_data(sql_query = query)
 df['Effective_Date'] = pd.to_datetime(df['Effective_Date'],format='%Y-%m-%d')
 df['Notice_Date'] = pd.to_datetime(df['Notice_Date'],format='%Y-%m-%d')
