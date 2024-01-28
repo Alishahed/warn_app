@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.write("# WARN ACT 2022-2023 California")
+st.write("# WARN ACT California Dashboard")
 
 st.sidebar.success("Select a demo above.")
 
