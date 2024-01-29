@@ -18,6 +18,6 @@ In this dashboard you can visualize the submitted WARN act notices following vie
 - By Company
 - By Month
 
-The dashboard is created using [Streamlit](www.streamlit.io) and the data is sourced from the [California Employment Development Department](https://www.edd.ca.gov/Jobs_and_Training/Layoff_Services_WARN.htm). 
+The dashboard is created using [Streamlit](https://www.streamlit.io) and the data is sourced from the [California Employment Development Department](https://www.edd.ca.gov/Jobs_and_Training/Layoff_Services_WARN.htm). 
 
 The Dashboard is hosted on [Streamlit Community Cloud](https://alishahed-warn-app-introduction-bbrweg.streamlit.app/)
